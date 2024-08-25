@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    background-color: rebeccapurple;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px;
+    margin-top: 15px;
+    background: white;
+    color: black;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    margin: 15px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.balance-container {
+    margin-top: 25px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#coin-image {
+    width: 200px;
+    height: auto;
+    margin-top: 100px;
+}
+
+.claim-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    background-color: red;
+    position: fixed;
+    border-radius: 100px;
+    bottom: 60px;
+    left: 25px;
+    width: 90%;
+}
+
+.claim-section span {
+    margin-right: 0px;
+}
+
+#claim-button {
+    background-color: #ffcc00;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-color: gray;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav-bar button {
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 45%;
+}
