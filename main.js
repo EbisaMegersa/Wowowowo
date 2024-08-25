@@ -14,12 +14,27 @@ setInterval(function() {
     document.getElementById('storage').innerText = storage.toFixed(2);
 }, 3600000); // 1 hour = 3600000 ms
 
-window.Telegram.WebApp.ready();
+document.addEventListener('DOMContentLoaded', () => {
+    // Ensure the Telegram Web App is initialized and the user is accessible
+    if (typeof Telegram !== 'undefined' && Telegram.WebApp && Telegram.WebApp.initDataUnsafe) {
+        const user = window.Telegram.WebApp.initDataUnsafe.user;
 
-const user = window.Telegram.WebApp.initDataUnsafe.user;
+        if (user) {
+            let username = user.username || user.first_name || 'Unknown';
+            if (username.length > 10) {
+                username = username.substring(0, 10) + '...';
+            }
+            document.getElementById('username').innerText = username;
 
-if (user) {
-    document.getElementById('username').innerText = user.username || user.first_name || "User";
-} else {
-    document.getElementById('username').innerText = "User";
-}
+            const storedBalance = localStorage.getItem(`balance_${user.id}`);
+            if (storedBalance !== null) {
+                balance = parseFloat(storedBalance);
+            }
+            updateDisplay();
+        } else {
+            alert("Unable to get Telegram user info.");
+        }
+    } else {
+        alert("Telegram Web App API is not available.");
+    }
+});
